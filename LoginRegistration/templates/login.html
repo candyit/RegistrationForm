@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><label for="username">Username</label></td>
+                <td><input type="text" name="username" id="username" required</td>
+            </tr>
+            <tr>
+                <td><label for="password">password</label></td>
+                <td><input type="password" name="password" id="password" required></td>
+            </tr>
+            <p style="color:red">{{error}}</p>
+        </table>
+        <button type="submit">Login</button>
+        <button><a href="{% url 'user_registration' %}">Signup</a></button>
+    </form>
+    <!-- <button><a href="{% url 'user_registration' %}">Signup</a></button> -->
+
+</body>
+</html>

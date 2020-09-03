@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>User <b>{{user.username}}</b> is logged in suucessfully.</p>
+    <form method="POST" action="/logout/">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+    <table border="1px"> 
+        <thead>
+            <td></td>
+            <td>Username</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+        </thead>
+        <tbody>
+            {% for user in userDetails %}
+            <tr>
+                <td><button><a href="/deleteUser/{{user.id}}"></a>Delete</button></td>
+                <td>{{user.username}}</td>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
